@@ -1,10 +1,10 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import SelectedMeal from './components/SelectedMeal'
 import Filter from './components/Filter';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MrChef from './components/MrChef';
 
 function App() {
