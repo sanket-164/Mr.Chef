@@ -29,7 +29,7 @@ function SelectedFood(props) {
 
   const paraToPoints = (paragraph) => {
     let paraArr = paragraph.split('\n');
-    console.log(paraArr);
+    // console.log(paraArr);
     return paraArr;
   }
 
@@ -257,7 +257,7 @@ function SelectedFood(props) {
                   className={`card-title text-${theme === "dark" ? "light" : "dark"
                     }`}
                 >
-                  Steps to make {food.strMeal}
+                  Steps to make
                 </h2>
                 <p
                   className={`card-text text-${theme === "dark" ? "light" : "dark"
@@ -269,14 +269,13 @@ function SelectedFood(props) {
                     )
                   })}
                 </p>
-                <h2 className={`card-title text-${theme === "dark" ? "light" : "dark" }`}>Recipe Video</h2>
+                <h2 className={`card-title text-${theme === "dark" ? "light" : "dark"}`}>Recipe Video</h2>
                 <div className="w-100" height="400vw">
                   {console.log(food.strYoutube.slice(food.strYoutube.indexOf('?v=') + 3))}
-                  <iframe title={food.strMeal} className="w-100" height="400vw" style={{ borderRadius: 20}} src={`https://www.youtube.com/embed/${food.strYoutube.slice(food.strYoutube.indexOf('?v=') + 3)}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe title={food.strMeal} className="w-100" height="400vw" style={{ borderRadius: 20 }} src={`https://www.youtube.com/embed/${food.strYoutube.slice(food.strYoutube.indexOf('?v=') + 3)}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                {/* <p className={`btn btn-${theme === "dark" ? "light" : "dark"
-                      } btn-lg fs-4 ms-2 me-3`} onClick={handleShare}><i class="fa-solid fa-share"></i></p> */}
               </div>
+                <p className={`btn btn-${theme === "dark" ? "light" : "dark"} fs-4 ms-3 me-3`} onClick={handleShare} title="Share">Share Recipe <i class="fa-solid fa-share"></i></p>
             </div>
           </div>
         </>

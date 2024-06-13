@@ -10,7 +10,7 @@ function MealItem(props) {
             </div>
             <div className={`card-body d-flex justify-content-between bg-${theme}`}>
                 <h5 className={`card-title text-${theme === 'dark' ? 'light' : 'dark'}`}>{props.title}</h5>
-                <p className={`card-text text-${theme === 'dark' ? 'light' : 'dark'}`}>{props.area} {props.category}</p>
+                <p className={`card-text text-${theme === 'dark' ? 'light' : 'dark'}`}>{props.area} <br></br> {props.category}</p>
             </div>
             <Link to={`/meal/${props.id}`} className={`btn btn-${theme === 'dark' ? 'light' : 'dark'} mx-3 my-3 text-${theme} fs-5`}>Recipe</Link>
         </div>

@@ -5,20 +5,20 @@ import Loader from './Loader';
 import InfiniteLoader from './InfiniteLoader';
 
 function Home(props) {
-    let { setTheme, theme } = props;
-    const [foods, setFoods] = useState([]);
+    let { setTheme, theme, foods, setFoods } = props;
+    // const [foods, setFoods] = useState([]);
     const [loading, setLoading] = useState(true);
     document.title = "Mr.Chef";
     const fetchFoods = async () => {
         let food = [];
         const url = 'https://www.themealdb.com/api/json/v1/1/random.php';
-        for (let i = 0; i < 6; i++) {
+        while (food.length < 6) {
             const response = await fetch(url);
             const json = await response.json();
-            if (food.length < 6) {
+            if(!foods.some(item => item.idMeal === json.meals[0].idMeal) && !food.some(item => item.idMeal === json.meals[0].idMeal)){
                 food.push(json.meals[0]);
             } else {
-                break;
+                console.log(json.meals[0])
             }
         }
         setFoods(foods.concat(food));
@@ -26,7 +26,12 @@ function Home(props) {
     }
 
     useEffect(() => {
-        fetchFoods();
+        if(foods.length <= 0){
+            fetchFoods();
+        } else {
+            setLoading(false);
+        }
+
         const myID = document.getElementById("top-btn-sanket");
 
         var myScrollFunc = function () {

@@ -1,14 +1,15 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import SelectedMeal from './components/SelectedMeal'
 import Filter from './components/Filter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MrChef from './components/MrChef';
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('MrChefTheme') ? localStorage.getItem('MrChefTheme') : 'dark');
+  const [foods, setFoods] = useState([]);
 
   if (theme === 'light') {
     document.body.style.backgroundColor = 'white';
@@ -34,7 +35,7 @@ function App() {
         <Navbar setTheme={themeToggle} theme={theme}></Navbar>
         <Routes>
           <Route exact path="/" element={<MrChef setTheme={themeToggle} theme={theme} />}></Route>
-          <Route exact path="/home" element={<Home setTheme={themeToggle} theme={theme} />}></Route>
+          <Route exact path="/home" element={<Home setTheme={themeToggle} theme={theme} foods={foods} setFoods={setFoods}/>}></Route>
           <Route exact path='/category/:category' element={<Filter setTheme={themeToggle} theme={theme} />}></Route>
           <Route exact path='/country/:country' element={<Filter setTheme={themeToggle} theme={theme} />}></Route>
           <Route exact path='/meal/:id' element={<SelectedMeal setTheme={themeToggle} theme={theme} />}></Route>
