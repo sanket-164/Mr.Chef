@@ -1,5 +1,5 @@
 # Mr. Chef - Recipe Web Application (<a href="https://sanket-mrchef.netlify.app/" target="__blank">**View**</a>)
-Welcome to Mr.Chef, a web application that brings you a wide variety of delicious recipes to explore and try in your kitchen. This README.md file serves as a guide to understanding Mr.Chef and its features.
+Mr.Chef, a web application that brings you a wide variety of delicious recipes to explore and try in your kitchen. This README.md file serves as a guide to understanding Mr.Chef and its features.
 
 # Features
 ### Recipe Collection
@@ -25,10 +25,57 @@ Welcome to Mr.Chef, a web application that brings you a wide variety of deliciou
 # Setup and Installation
 ### To set up Mr.Chef locally, follow these steps:
 
-1. Clone the repository from https://github.com/sanket-164/Mr.Chef_ReactJS_RESTAPI.git.
-2. Install the required dependencies by running npm install in the root directory.
-3. Run the application using npm start command.
-4. Access the application in your browser at `http://localhost:3000`.
+1. Clone the repository
+   ```sh
+   git clone https://github.com/sanket-164/Mr.Chef.git
+   ```
+2. Navigate into the project directory
+   ```sh
+   cd Mr.Chef
+   ```
+3. Install the required dependencies
+   ```sh
+   npm install
+   ```
+4. Run the application using
+   ```sh
+   npm start
+   ```
+5. Access the application in your browser
+   ```sh
+   http://localhost:3000
+   ```
+
+# Running with Docker
+### To pull and run the Docker image, follow these steps:
+
+1. Pull the Docker image
+   ```sh
+   docker pull sanket164/mrchef
+   ```
+
+2. Run the Docker container
+   ```sh
+   docker run -d -p 3000:3000 --name mrchef sanket164/mrchef
+   ```
+   - `-d` runs the container in detached mode.
+   - `-p 3000:3000` maps the container's port 3000 to your local machine.
+   - `--name mrchef` assigns a name to the container.
+
+3. Open your browser and visit
+   ```
+   http://localhost:3000
+   ```
+
+4. To stop the container
+   ```sh
+   docker stop mrchef
+   ```
+   
+5. To remove the container
+   ```sh
+   docker rm mrchef
+   ```
 
 # Contributing
 - Contributions to Mr.Chef are welcome! If you find any issues or have suggestions for improvement, please open an issue on the GitHub repository.
